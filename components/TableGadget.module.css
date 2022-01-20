@@ -1,0 +1,115 @@
+.section {
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.divUp {
+    background-color: rgb(14, 12, 61);
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.sectionTitle {
+    font-size: 25px;
+    font-weight: bolder;
+    color: #e9e9e9;
+    width: 37%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sectionTitle p {
+    margin-right: 30px;
+}
+
+.table {
+    list-style: none;
+    /* background-color: rgb(86, 86, 218); */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0;
+}
+
+.table li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e9e9e938;
+    color: #e9e9e9;
+    padding: 0;
+    align-items: center;
+}
+
+.nrAndteam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.team {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.team p {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.number {
+    font-size: 13px;
+    color: #c3c3c3;
+}
+
+.points {
+    margin-bottom: 10px;
+}
+
+.leagueLogo {
+    width: 50px;
+}
+
+@media (max-width: 1171px) {
+    .section {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    .sectionTitle {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 628px) {
+    .section {
+        width: 100%;
+    }
+
+    .team p {
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+    .leagueLogo {
+        display: none;
+    }
+
+    .number {
+        font-size: 10px;
+        color: #c3c3c3;
+    }
+
+    .points {
+        font-size: 12px;
+    }
+}

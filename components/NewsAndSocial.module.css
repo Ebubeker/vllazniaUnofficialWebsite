@@ -1,0 +1,135 @@
+.section {
+    display: flex;
+    padding: 10px;
+}
+
+.news {
+    width: 70%;
+}
+
+.social {
+    width: 30%;
+}
+
+.sideTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(13, 20, 42);
+}
+
+.newsCard {
+    background-color: #e9e9e9;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.newsImage {
+    background-image: url('../public/images/VllazniaGoca.jpg');
+    width: 100%;
+    height: 200px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: none;
+}
+
+.newsImage:hover {
+    animation: hoverUp .5s ease-in-out forwards;
+}
+
+.gridnews {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* justify-items: end; */
+    padding: 20px;
+    column-gap: 20px;
+}
+
+/* .newsContent {} */
+
+.newsType {
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+}
+
+.newsTitle {
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(10, 13, 34);
+}
+
+.galleryContent {
+    padding: 20px;
+    height: 900px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.galleryItem {
+    background-image: url("../public/images/gallery1.webp");
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.galleryItem:hover p {
+    background-color: rgba(41, 41, 41, 0.719);
+}
+
+.galleryItem p {
+    margin: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.719);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-weight: bolder;
+    transition: all .3s ease-in-out;
+}
+
+@keyframes hoverUp {
+    0% {
+        background-size: 150%;
+    }
+
+    100% {
+        background-size: 170%;
+    }
+}
+
+@media (max-width: 1817px) {
+    .gridnews {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1278px) {
+    .gridnews {
+        display: block;
+    }
+
+    .newsCard {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 749px){
+    .section{
+        display: block;
+    }
+
+    .news, .social{
+        width: 100%;
+    }
+}

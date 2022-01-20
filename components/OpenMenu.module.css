@@ -1,0 +1,240 @@
+.navLink {
+    color: #fff;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.overMenu {
+    background-color: var(--picotee-blue);
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    width: 345.5px;
+    height: 100vh;
+    animation: open .5s ease-in-out;
+}
+
+.overMenuClose {
+    background-color: var(--picotee-blue);
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    width: 345.5px;
+    height: 100vh;
+    animation: close .5s ease-in-out;
+}
+
+.navList {
+    list-style: none;
+    width: 60%;
+    margin: 20px auto;
+    padding-left: 0;
+    margin-bottom: 50px;
+}
+
+.navlink {
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-bottom: rgb(255, 255, 255) 2px solid;
+    padding-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navlink::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: var(--red);
+    transition: all .5s ease-in-out;
+
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.navlink:hover::before,
+.navlink:focus::before {
+    transform: scaleX(1);
+    /* border-bottom: var(--red) 2px solid; */
+}
+
+.loginBtnOver {
+    background-color: transparent;
+    border: 3px solid var(--red);
+    padding: 8px 18px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.overMenuContent {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.Languages {
+    text-align: center;
+}
+
+.Languages span {
+    cursor: pointer;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.479);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.image {
+    width: 100%;
+    text-align: right;
+}
+
+.iconTimes {
+    width: 15px;
+    position: absolute;
+    left: 25px;
+    top: 32px;
+    cursor: pointer;
+}
+
+.navLinkArrow {
+    width: 10px;
+    font-weight: normal;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    transition: all .5s ease-in-out;
+    display: block;
+}
+
+.navLinkArrowOut {
+    width: 10px;
+    font-weight: normal;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    transition: all .5s ease-in-out;
+    display: none;
+}
+
+.navlink:hover .navLinkArrow {
+    color: var(--red);
+}
+
+.whiteMenu {
+    background-color: rgb(250, 245, 245);
+    position: fixed;
+    left: 345.5px;
+    top: 0;
+    width: 700px;
+    height: 100%;
+    animation: open .5s ease-in-out;
+}
+
+.whiteMenuOut {
+    background-color: rgb(250, 245, 245);
+    position: fixed;
+    left: 345.5px;
+    top: 0;
+    width: 700px;
+    height: 100%;
+    animation: close .5s ease-in-out;
+}
+
+.whiteContainer {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.menuTitle {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.underTitle {
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.whiteMenuList {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.whiteMenuLink {
+    width: 200px;
+    border-bottom: 2px solid rgb(189, 189, 189);
+    margin-right: 10px;
+    padding-bottom: 7px;
+    cursor: pointer;
+    position: relative;
+}
+
+.whiteMenuLink::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: var(--red);
+    transition: all .5s ease-in-out;
+
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.whiteMenuLink:hover::before,
+.whiteMenuLink:focus::before {
+    transform: scaleX(1);
+    /* border-bottom: var(--red) 2px solid; */
+}
+
+.rightArrowIcon {
+    width: 10px;
+    font-weight: lighter;
+    margin-left: 5px;
+    color: var(--red);
+    transition: all .3s ease-in-out;
+}
+
+.underTitle:hover .rightArrowIcon {
+    transform: translateX(5px);
+}
+
+@keyframes open {
+    0% {
+        transform: translateX(-345.5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes close {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-345.5px);
+    }
+}

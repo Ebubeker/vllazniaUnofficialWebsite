@@ -1,0 +1,87 @@
+.navbar {
+    background-color: var(--picotee-blue);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 4.5px solid var(--red);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+}
+
+.content {
+    width: 55%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Brand {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.user {
+    width: 40%;
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.icon {
+    height: 20px;
+    color: #fff;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.loginBtn {
+    background-color: transparent;
+    border: 3px solid var(--red);
+    padding: 8px 18px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.loginBtn:hover {
+    border-color: rgb(184, 28, 28);
+}
+
+.shower {
+    color: rgb(206, 206, 206);
+    font-weight: bold;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.navLink {
+    color: #fff;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 1169px) {
+    .content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 895px) {
+    .user {
+        display: none;
+    }
+
+    .Brand {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,70 @@
+.stripe {
+    background-color: #fff;
+    height: 2px;
+    width: 30px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-left: 40px;
+    border-radius: 50px;
+    animation: close .3s ease-in-out;
+}
+
+.bar {
+    z-index: 4;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    transition: margin .3s ease-in-out;
+    flex: auto;
+}
+
+.stripeUnique {
+    background-color: #fff;
+    height: 2px;
+    width: 17px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-left: 40px;
+    border-radius: 50px;
+    animation: leave .3s ease-in-out;
+}
+
+.stripeUniqueOut {
+    background-color: #fff;
+    height: 2px;
+    margin-bottom: 11px;
+    margin-top: 11px;
+    width: 30px;
+    border-radius: 50px;
+    margin-left: 40px;
+    animation: full .3s ease-in-out;
+}
+
+
+@keyframes full {
+    0% {
+        width: 17px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+
+    100% {
+        width: 30px;
+        margin-bottom: 11px;
+        margin-top: 11px;
+    }
+}
+
+@keyframes leave {
+    0% {
+        width: 30px;
+        margin-bottom: 11px;
+        margin-top: 11px;
+    }
+
+    100% {
+        width: 17px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+}

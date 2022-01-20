@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.gameBox {
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.emblems {
+    display: flex;
+}
+
+.scoreOrDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreOrDate p {
+    margin: 5px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: rgb(12, 23, 34);
+}
+
+.halfTimeOrTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.halfTimeOrTime p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.carousel button[data-direction="right"] {
+    background-color: var(--picotee-blue);
+    border: none;
+    padding: 20px 15px;
+    margin-top: 40px;
+    clip-path: polygon(14% 0, 39% 49%, 13% 100%, 0% 100%, 25% 50%, 0% 0%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.carousel button[data-direction="left"] {
+    background-color: var(--picotee-blue);
+    border: none;
+    padding: 20px 15px;
+    margin-top: 40px;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 88% 100%, 62% 50%, 88% 0);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}

@@ -1,0 +1,64 @@
+.CardList {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* .CardBox {}
+
+.images {} */
+
+.title {
+    color: #000;
+    font-weight: bolder;
+    font-size: 35px;
+    text-align: center;
+}
+
+.cardContent {}
+
+.cardTitle {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.cardPrice {
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 5px;
+    color: rgb(61, 61, 61);
+}
+
+.btn {
+    background-color: rgb(88, 88, 199);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    padding: 8px 40px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background-color: rgb(48, 48, 136);
+}
+
+.section {
+    padding-bottom: 30px;
+}
+
+@media(max-width: 1047px) {
+    .CardList {
+        display: block;
+    }
+
+    .CardBox{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
