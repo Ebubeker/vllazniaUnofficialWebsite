@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardList, CardBox, images, title, cardContent, cardTitle, cardPrice, btn, section} from './ShopGadget.module.css';
 import Image from 'next/image';
-import HomeKit from '../public/images/VllazniaKit.jpg';
+import HomeKit from '../public/images/vllazniaKit.jpg';
 
 const ShopGadget = () => {
   return (
