@@ -43,10 +43,10 @@ const FullScreenNextMatch = () => {
                             <p>Thomas Brdaric</p>
                         </div>
                         <div className={newsFromCoach}>
-                            <p>"We are going to the capital only to win this game, and we will."</p>
+                            <p>&quot;We are going to the capital only to win this game, and we will.&quot;</p>
                         </div>
                         <div className={situationNews}>
-                            <p>"Seems like Air Albania will be full of supporters. Both teams are in a very good shape"</p>
+                            <p>&quot;Seems like Air Albania will be full of supporters. Both teams are in a very good shape&quot;</p>
                         </div>
                     </div>
                 </div>
