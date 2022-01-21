@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import {
   FullScreenNextMatch,
   OurPartners,
@@ -13,6 +14,12 @@ import {
 } from "../components";
 
 export default function Home() {
+  const [width, setWidth] = useState(null);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -24,7 +31,7 @@ export default function Home() {
       <OurPartners />
       <BackSection>
         <NewsHighlight />
-        <GamesGadget />
+        <GamesGadget width={width} />
         <VllazniaTv />
         <NewsAndSocial />
         <TableGadget />
