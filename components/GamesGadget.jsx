@@ -27,7 +27,7 @@ const GamesGadget = ({width}) => {
 
     return (
         <div className={container}>
-            <Carousel className={carousel} show={show}  slide={3} swaping={true}>
+            <Carousel className={carousel} show={show}  slide={show}>
                 <div className={gameBox}>
                     <div className={emblems}>
                         <Image height={"60px"} width={"60px"} src={vllaznia} />

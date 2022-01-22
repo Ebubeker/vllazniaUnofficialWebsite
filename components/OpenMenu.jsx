@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useContext, useState} from 'react';
-import {overlay, overMenu, overMenuClose, navList, navlink, loginBtnOver, overMenuContent, Languages, image, iconTimes, navLinkArrow, whiteMenu, menuTitle, underTitle, whiteMenuList, whiteMenuLink, whiteContainer, rightArrowIcon, whiteMenuOut} from './OpenMenu.module.css';
+import {overlay, overMenu, overMenuClose, navList, navlink, loginBtnOver, overMenuContent, Languages, image, iconTimes, navLinkArrow, whiteMenu, menuTitle, underTitle, whiteMenuList, whiteMenuLink, whiteContainer, rightArrowIcon, whiteMenuOut, arrowToCloseWhite} from './OpenMenu.module.css';
 import Image from 'next/image';
 import vllazniaName from '../public/images/vllazniaName.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,7 +22,14 @@ const OpenMenu = () => {
     } 
 
     const changetheWhiteMenu = (navbarwhit)=>{
+        whitemen.current.style.display = "block";
         setCurrentWhiteElement(navbarwhit);
+    }
+
+    const reverseWhiteMenu = () => {
+        if(whitemen.current.style.display === "block"){
+            whitemen.current.style.display = "none";
+        }
     }
 
     useEffect(() => {
@@ -32,13 +39,22 @@ const OpenMenu = () => {
         }else if(navIs === true){
             sidwayMenu.current.className = overMenuClose;
             whitemen.current.className = whiteMenuOut;
+            // setCount(0);
             setTimeout(() => {
                 menu.current.style.display = "none";
             }, 450);
         }else if(navIs === false){
-            sidwayMenu.current.className = overMenu;
-            whitemen.current.className = whiteMenu;
-            menu.current.style.display = "block";
+            if(count === 1){
+                sidwayMenu.current.className = overMenu;
+                whitemen.current.style.display = "none";
+                menu.current.style.display = "block";
+                setCount(2)
+            }else{
+                sidwayMenu.current.className = overMenu;
+                whitemen.current.className = whiteMenu;
+                // whitemen.current.style.display = "block";
+                menu.current.style.display = "block";
+            }
         }
     }, [navIs])
 
@@ -51,7 +67,7 @@ const OpenMenu = () => {
                 </div>
                 <ul className={navList}>
                     {NavbarData.map((navIt)=>(
-                        <li key={navIt.name} onMouseOver={()=>changetheWhiteMenu(navIt.name)} className={navlink}>{navIt.name} <FontAwesomeIcon className={navLinkArrow} icon={faChevronRight}/></li>
+                        <li key={navIt.name} onClick={()=>changetheWhiteMenu(navIt.name)} onMouseOver={()=>changetheWhiteMenu(navIt.name)} className={navlink}>{navIt.name} <FontAwesomeIcon className={navLinkArrow} icon={faChevronRight}/></li>
                     ))}
                 </ul>
                 <div className={overMenuContent}>
@@ -60,6 +76,7 @@ const OpenMenu = () => {
                 </div>
             </div>  
             <div ref={whitemen} className={whiteMenu}>
+                <div onClick={reverseWhiteMenu} className={arrowToCloseWhite}>&#60;</div>
                     {NavbarData.map((navIt, index)=>{
                         if(currentWhiteElement === navIt.name){
                             return(

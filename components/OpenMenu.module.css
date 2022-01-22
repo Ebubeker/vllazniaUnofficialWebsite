@@ -219,6 +219,17 @@
     transform: translateX(5px);
 }
 
+.arrowToCloseWhite {
+    position: absolute;
+    font-weight: bolder;
+    font-size: 25px;
+    left: 20px;
+    top: 20px;
+    margin: 0;
+    cursor: pointer;
+    color: rgb(58, 58, 58);
+}
+
 @keyframes open {
     0% {
         transform: translateX(-345.5px);
@@ -237,4 +248,30 @@
     100% {
         transform: translateX(-345.5px);
     }
+}
+
+@media (max-width: 600px) {
+    .overMenu {
+        width: 300.5px;
+    }
+
+    .overMenuClose {
+        width: 300.5px;
+    }
+
+    .whiteMenu {
+        right: 0;
+        left: auto;
+        width: 300px;
+    }
+
+    .whiteMenuOut {
+        right: 0;
+        width: 300px;
+    }
+
+    .navList {
+        margin-bottom: 20px;
+    }
+
 }
