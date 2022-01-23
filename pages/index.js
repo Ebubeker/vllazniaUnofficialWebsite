@@ -12,8 +12,9 @@ import {
   ShopGadget,
   Footer,
 } from "../components";
+import { getMatches } from "../pages/api/api";
 
-export default function Home() {
+export default function Home({ matches }) {
   const [width, setWidth] = useState(null);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function Home() {
       <OurPartners />
       <BackSection>
         <NewsHighlight />
-        <GamesGadget width={width} />
+        <GamesGadget width={width} matches={matches} />
         <VllazniaTv />
         <NewsAndSocial />
         <TableGadget />
@@ -40,4 +41,13 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const matches = (await getMatches()) || [];
+  return {
+    props: {
+      matches,
+    },
+  };
 }
