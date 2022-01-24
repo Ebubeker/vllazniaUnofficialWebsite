@@ -3,9 +3,11 @@
     justify-content: space-around;
 }
 
-/* .CardBox {}
-
-.images {} */
+.images img{
+    height: 300px;
+    width: 230px;
+    object-fit: cover;
+}
 
 .title {
     color: #000;

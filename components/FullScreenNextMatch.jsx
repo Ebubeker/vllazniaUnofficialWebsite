@@ -1,11 +1,46 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import abissnet from '../public/images/abissnet-logo.png';
 import KfTirana from '../public/images/kFTiranaLogo.png';
 import KfVllaznia from '../public/images/vllazniaLogo.png';
 import Image from 'next/image';
 import {section, overlay, competitionName, content, timeAndLoc, gameWeek, saying, countdown, count, notCount, Match, homeTeam, teamName, kickOf, awayTeam, image, time, kik, blueLine, redLine, latestNews, newsName, newsFromCoach, situationNews, imageFooter} from './FullScreenNextMatch.module.css';
+import UpcommingMatch from '../functions/functions';
 
-const FullScreenNextMatch = () => {
+const FullScreenNextMatch = ({matches}) => {
+
+    let game = {};
+    const {edges} = matches;
+    let counter = 0;
+
+    edges.forEach(edge => {
+        if(edge.node.gameDate !== null && counter === 0){
+            game = edge;
+            counter++;
+        }
+    });
+
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const currentDate = new Date();
+            const newYarsDate = new Date(game.node.gameDate);
+        
+            const totalSeconds = (newYarsDate - currentDate)/1000;
+        
+            setDays(Math.floor(totalSeconds / 3600 / 24));
+            setHours(Math.floor(totalSeconds / 3600) % 24);
+            setMinutes((Math.floor(totalSeconds / 60) % 3600) % 24);
+            setSeconds(Math.floor(totalSeconds % 60));
+        }, 1000);
+        return () => clearInterval(interval);
+    
+      
+    }, [seconds]);
+
     return (
         <div className={section}>
             <div className={overlay}>
@@ -15,27 +50,27 @@ const FullScreenNextMatch = () => {
                         <p>Abissnet Superiore</p>
                     </div>
                     <div className={timeAndLoc}>
-                        <p><span className={gameWeek}>Matchday 16</span>•<span>Air Albania Stadium</span></p>
+                        <p><span className={gameWeek}>{game.node.matchDayNr}</span>•<span>{game.node.stadium}</span></p>
                     </div>
                     <div className={saying}>
                         <p>An Away Game Agains Historical Rivals</p>
                     </div>
                     <div className={countdown}>
                         <p className={notCount}>Match Countdown</p>
-                        <p className={count}>07:23:21:47</p>
+                        <p className={count}>{days}:{hours}:{minutes}:{seconds}</p>
                     </div>
                     <div className={Match}>
                         <div className={homeTeam}>
-                            <p className={teamName}>KF Tirana</p>
-                            <Image className={image} height={"175px"} width={"175px"} src={KfTirana}></Image>
+                            <p className={teamName}>{game.node.homeTeam}</p>
+                            <img className={image} src={game.node.homeEmblem.url}></img>
                         </div>
                         <div className={kickOf}>
                             <p className={kik}>Kickoff CET</p>
-                            <p className={time}>19:45</p>
+                            <p className={time}>{game.node.gameDate.split("T")[1].split("+")[0].split(":")[0]}:{game.node.gameDate.split("T")[1].split("+")[0].split(":")[1]}</p>
                         </div>
                         <div className={awayTeam}>
-                            <Image className={image} height={"175px"} width={"175px"} src={KfVllaznia}></Image>
-                            <p className={teamName}>KF Vllaznia</p>
+                            <img className={image} src={game.node.awayEmblem.url}></img>
+                            <p className={teamName}>{game.node.awayTeam}</p>
                         </div>
                     </div>
                     <div className={latestNews}>

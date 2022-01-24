@@ -1,96 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {section, news, social, sideTitle, newsCard, newsImage, gridnews, newsContent, newsType, newsTitle, galleryContent, galleryItem} from './NewsAndSocial.module.css';
 import Link from 'next/link';
 
-const NewsAndSocial = () => {
+const NewsAndSocial = ({gallery, news}) => {
+
+    const [newses, setNews] = useState([]);
+
+    const {edges} = gallery;
+
+    useEffect(() => {
+      setNews(news.edges);
+    }, []);
+
     return (
         <div className={section}>
             <div className={news}>
                 <p className={sideTitle}>News</p>
                 <div className={gridnews}>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
+                    {newses.map((news, i)=>(
+                        <Link key={i} href={"/"}>
+                            <div className={newsCard}>
+                                <div className={newsImage} style={{backgroundImage: `url(${news.node.featuredImage.url})`}}></div>
+                                <div className={newsContent}>
+                                    <p className={newsType}>{news.node.title}</p>
+                                    <p className={newsTitle}>{news.node.excerpt}</p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link href={"/"}>
-                        <div className={newsCard}>
-                            <div className={newsImage}></div>
-                            <div className={newsContent}>
-                                <p className={newsType}>Friendly</p>
-                                <p className={newsTitle}>Vllaznia played yesterday against Terbuni</p>
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    ))}
                 </div>
             </div>
             <div className={social}>
                 <p className={sideTitle}>Gallery</p>
                 <div className={galleryContent}>
-                    <div className={galleryItem}>
-                        <p>12th of January - Before Tirana game</p>
-                    </div>
-                    <div className={galleryItem}>
-                        <p>12th of January - Before Tirana game</p>
-                    </div>
-                    <div className={galleryItem}>
-                        <p>12th of January - Before Tirana game</p>
-                    </div>
-                    <div className={galleryItem}>
-                        <p>12th of January - Before Tirana game</p>
-                    </div>
-                    <div className={galleryItem}>
-                        <p>12th of January - Before Tirana game</p>
-                    </div>
+                    {edges.map(gall => (
+                        <div className={galleryItem} style={{backgroundImage: `url("${gall.node.photo.url}")`}}>
+                            <p>{gall.node.photoImage}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
