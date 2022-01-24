@@ -8,8 +8,8 @@ const ShopGadget = ({products}) => {
     <div className={section}>
       <p className={title}>Vllaznia Most Buyed Products</p>
       <div className={CardList}>
-        {products.map((prod)=>(
-            <div className={CardBox}>
+        {products.map((prod, i)=>(
+            <div key={i} className={CardBox}>
                 <div className={images}>
                     <img src={prod.node.prodImage.url} />
                 </div>
@@ -21,26 +21,6 @@ const ShopGadget = ({products}) => {
             </div>
 
         ))}
-        {/* <div className={CardBox}>
-            <div className={images}>
-                <Image src={HomeKit} height={'300px'} width={'230px'}/>
-            </div>
-            <div className={cardContent}>
-                <p className={cardTitle}>Vllaznia Home Kit</p>
-                <p className={cardPrice}>88$</p>
-                <button className={btn}>Buy!</button>
-            </div>
-        </div>
-        <div className={CardBox}>
-            <div className={images}>
-                <Image src={HomeKit} height={'300px'} width={'230px'}/>
-            </div>
-            <div className={cardContent}>
-                <p className={cardTitle}>Vllaznia Home Kit</p>
-                <p className={cardPrice}>88$</p>
-                <button className={btn}>Buy!</button>
-            </div>
-        </div> */}
       </div>
     </div>
   );

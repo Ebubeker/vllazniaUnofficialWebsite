@@ -33,8 +33,8 @@ const NewsAndSocial = ({gallery, news}) => {
             <div className={social}>
                 <p className={sideTitle}>Gallery</p>
                 <div className={galleryContent}>
-                    {edges.map(gall => (
-                        <div className={galleryItem} style={{backgroundImage: `url("${gall.node.photo.url}")`}}>
+                    {edges.map((gall, i) => (
+                        <div key={i} className={galleryItem} style={{backgroundImage: `url("${gall.node.photo.url}")`}}>
                             <p>{gall.node.photoImage}</p>
                         </div>
                     ))}
