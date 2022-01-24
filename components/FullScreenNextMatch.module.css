@@ -302,4 +302,10 @@
     .redLine {
         display: none;
     }
+
+    .image {
+        z-index: 0;
+        height: 125px;
+        width: auto;
+    }
 }
