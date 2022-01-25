@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faChevronRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { NavbarContext } from '../contexts/NavbarContext';
 import { NavbarData } from '../public/static/navbarData';
+import Link from 'next/link';
 
 const OpenMenu = () => {
 
@@ -82,7 +83,9 @@ const OpenMenu = () => {
                             return(
                                 <div key={index} className={whiteContainer}>
                                     <div className={menuTitle}>
-                                        <p>{navIt.name}</p>
+                                        <Link href={`/${navIt.branch}`}>
+                                            <p>{navIt.name}</p>
+                                        </Link>
                                     </div>
                                     {navIt.content.map((navcont, index)=>(
                                         <div key={index}>

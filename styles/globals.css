@@ -31,3 +31,7 @@ a {
   width: 70%;
   margin: 0 auto;
 }
+
+.paddingUp{
+  padding-top: 200px;
+}

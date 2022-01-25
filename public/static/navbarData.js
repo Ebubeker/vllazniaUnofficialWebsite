@@ -7,6 +7,7 @@ export const NavbarData = [
         content: [],
       },
     ],
+    branch: "",
   },
   {
     name: "Latest",
@@ -20,6 +21,7 @@ export const NavbarData = [
         content: ["Latest Youtube Posts", "Latest Game Highlights"],
       },
     ],
+    branch: "latest",
   },
   {
     name: "Teams",
@@ -65,6 +67,7 @@ export const NavbarData = [
         content: ["Superliga", "Kupa e Shqiperis", "Team", "Team Staff"],
       },
     ],
+    branch: "teams",
   },
   {
     name: "Schedules",
@@ -87,6 +90,7 @@ export const NavbarData = [
         content: ["Men's Friendlies", "Women's Friendlies"],
       },
     ],
+    branch: "schedules",
   },
   {
     name: "Tickets",
@@ -100,6 +104,7 @@ export const NavbarData = [
         content: ["Buy Ticket"],
       },
     ],
+    branch: "tickets",
   },
   {
     name: "Stadium",
@@ -117,6 +122,7 @@ export const NavbarData = [
         content: ["Parking time"],
       },
     ],
+    branch: "stadium",
   },
   {
     name: "Youth Academy",
@@ -138,6 +144,7 @@ export const NavbarData = [
         content: ["Game Highlights", "In Game Photos", "Training Photos"],
       },
     ],
+    branch: "youthAcademy",
   },
   {
     name: "History",
@@ -151,6 +158,7 @@ export const NavbarData = [
         ],
       },
     ],
+    branch: "history",
   },
   {
     name: "Fans",
@@ -164,6 +172,7 @@ export const NavbarData = [
         content: ["Gallery", "Give your idea"],
       },
     ],
+    branch: "fans",
   },
   {
     name: "FanShop",
@@ -181,5 +190,6 @@ export const NavbarData = [
         content: ["Vllaznia Flag"],
       },
     ],
+    branch: "fanShop",
   },
 ];
