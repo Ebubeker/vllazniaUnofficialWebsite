@@ -106,3 +106,29 @@ export const getProducts = async () => {
 
   return result.vllazniaShopsConnection.edges;
 };
+
+export const getVideos = async () => {
+  const query = gql`
+    query MyQuery {
+      vllazniaTvsConnection {
+        edges {
+          node {
+            title
+            videImage {
+              url
+            }
+            featureVideo
+            video {
+              url
+            }
+            description
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+
+  return result.vllazniaTvsConnection.edges;
+};

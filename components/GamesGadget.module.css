@@ -4,9 +4,10 @@
 }
 
 .gameBox {
-    padding: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    /* padding: 10px; */
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    margin: 0 auto;
 }
 
 .emblems {
@@ -43,6 +44,10 @@
     font-size: 14px;
 }
 
+.carousel{
+    position: relative;
+}
+
 .carousel button[data-direction="right"] {
     background-color: var(--picotee-blue);
     border: none;
@@ -50,6 +55,8 @@
     margin-top: 40px;
     clip-path: polygon(14% 0, 39% 49%, 13% 100%, 0% 100%, 25% 50%, 0% 0%);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    position: absolute;
+    right: -5px;
 }
 
 .carousel button[data-direction="left"] {
@@ -59,6 +66,8 @@
     margin-top: 40px;
     clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 88% 100%, 62% 50%, 88% 0);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    position: absolute;
+    left: -5px;
 }
 
 @media(max-width: 2049px) {}

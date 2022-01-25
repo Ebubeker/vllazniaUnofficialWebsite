@@ -12,12 +12,15 @@ import {
   ShopGadget,
   Footer,
 } from "../components";
-import { getMatches } from "../pages/api/api";
-import { getGallery } from "../pages/api/api";
-import { getNews } from "../pages/api/api";
-import { getProducts } from "../pages/api/api";
+import {
+  getMatches,
+  getGallery,
+  getNews,
+  getProducts,
+  getVideos,
+} from "../pages/api/api";
 
-export default function Home({ matches, gallery, news, products }) {
+export default function Home({ matches, gallery, news, products, videos }) {
   const [width, setWidth] = useState(null);
 
   useEffect(() => {
@@ -36,7 +39,7 @@ export default function Home({ matches, gallery, news, products }) {
       <BackSection>
         <NewsHighlight news={news} />
         <GamesGadget width={width} matches={matches} />
-        <VllazniaTv />
+        <VllazniaTv videos={videos} />
         <NewsAndSocial gallery={gallery} news={news} />
         <TableGadget />
         <ShopGadget products={products} />
@@ -51,12 +54,14 @@ export async function getStaticProps() {
   const gallery = (await getGallery()) || [];
   const news = (await getNews()) || [];
   const products = (await getProducts()) || [];
+  const videos = (await getVideos()) || [];
   return {
     props: {
       matches,
       gallery,
       news,
       products,
+      videos,
     },
   };
 }

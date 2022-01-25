@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-// import vllaznia from '../public/images/vllazniaLogo.png';
-// import tirana from '../public/images/kFTiranaLogo.png';
-// import laci from '../public/images/laciKf.png'
-// import partizani from '../public/images/partizaniFk.png';
 import Image from 'next/image';
 import { Carousel } from '@trendyol-js/react-carousel';
 import {container, gameBox, emblems, scoreOrDate, halfTimeOrTime, carousel} from './GamesGadget.module.css';
+
 
 const GamesGadget = ({width, matches}) => {
 
@@ -27,7 +24,7 @@ const GamesGadget = ({width, matches}) => {
 
     return (
         <div className={container}>
-            <Carousel className={carousel} show={show} infinite={false} slide={1} transition={0.5}>
+            <Carousel className={carousel} show={show} infinite={false} slide={1} >
                 {edges.map((game, i)=>(
                     <div key={i} className={gameBox}>
                         <div className={emblems}>
