@@ -7,7 +7,7 @@ import {container, gameBox, emblems, scoreOrDate, halfTimeOrTime, carousel} from
 const GamesGadget = ({width, matches}) => {
 
     const [show, setShow] = useState(null);
-    const {edges} = matches;
+    // const {edges} = matches;
     
     useEffect(() => {
         if(width > 1200){
@@ -25,7 +25,7 @@ const GamesGadget = ({width, matches}) => {
     return (
         <div className={container}>
             <Carousel className={carousel} show={show} infinite={false} slide={1} >
-                {edges.map((game, i)=>(
+                {matches.map((game, i)=>(
                     <div key={i} className={gameBox}>
                         <div className={emblems}>
                             <img  src={game.node.homeEmblem.url} />

@@ -3,8 +3,16 @@ import {section, videoCard, image, cardTitle, cardDesc, videoIcon, sectionTitle,
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
+import store from '../redux/store';
 
-const VllazniaTv = ({videos}) => {
+const VllazniaTv = () => {
+
+    store.dispatch({
+        type: "GETVIDEOS",
+    });
+
+    const {videos} = store.getState();
+
     return (
         <div className={divUp}>
             <p className={sectionTitle}>Vllaznia TV+</p>

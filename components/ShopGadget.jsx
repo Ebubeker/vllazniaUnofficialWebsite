@@ -2,8 +2,16 @@ import React from 'react';
 import {CardList, CardBox, images, title, cardContent, cardTitle, cardPrice, btn, section} from './ShopGadget.module.css';
 import Image from 'next/image';
 import HomeKit from '../public/images/vllazniaKit.jpg';
+import store from '../redux/store';
 
-const ShopGadget = ({products}) => {
+const ShopGadget = () => {
+
+  store.dispatch({
+    type: "GETPROD"
+  })
+
+  const {products} = store.getState();
+
   return (
     <div className={section}>
       <p className={title}>Vllaznia Most Buyed Products</p>

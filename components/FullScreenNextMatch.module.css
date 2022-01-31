@@ -98,6 +98,8 @@
 .homeTeam {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    width: 40%;
 }
 
 .teamName {
@@ -109,6 +111,7 @@
 
 .kickOf {
     text-align: center;
+    width: 20%;
 }
 
 .kickOf p {
@@ -120,6 +123,8 @@
 .awayTeam {
     display: flex;
     align-items: center;
+    width: 40%;
+    justify-content: flex-start;
 }
 
 .image {

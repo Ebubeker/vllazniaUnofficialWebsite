@@ -1,24 +1,21 @@
 import React, { useEffect,useState } from 'react';
 import abissnet from '../public/images/abissnet-logo.png';
-import KfTirana from '../public/images/kFTiranaLogo.png';
-import KfVllaznia from '../public/images/vllazniaLogo.png';
 import Image from 'next/image';
 import {section, overlay, competitionName, content, timeAndLoc, gameWeek, saying, countdown, count, notCount, Match, homeTeam, teamName, kickOf, awayTeam, image, time, kik, blueLine, redLine, latestNews, newsName, newsFromCoach, situationNews, imageFooter} from './FullScreenNextMatch.module.css';
-import UpcommingMatch from '../functions/functions';
+
 
 const FullScreenNextMatch = ({matches}) => {
-
+    
     let game = {};
-    const {edges} = matches;
     let counter = 0;
-
-    edges.forEach(edge => {
+    matches.forEach(edge => {
         if(edge.node.gameDate !== null && counter === 0){
             game = edge;
             counter++;
         }
     });
-
+    
+    
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
@@ -28,16 +25,16 @@ const FullScreenNextMatch = ({matches}) => {
         const interval = setInterval(() => {
             const currentDate = new Date();
             const newYarsDate = new Date(game.node.gameDate);
-        
+            
             const totalSeconds = (newYarsDate - currentDate)/1000;
-        
+            
             setDays(Math.floor(totalSeconds / 3600 / 24));
             setHours(Math.floor(totalSeconds / 3600) % 24);
             setMinutes((Math.floor(totalSeconds / 60) % 3600) % 24);
             setSeconds(Math.floor(totalSeconds % 60));
         }, 1000);
         return () => clearInterval(interval);
-    
+        
       
     }, [seconds]);
 
@@ -59,6 +56,7 @@ const FullScreenNextMatch = ({matches}) => {
                         <p className={notCount}>Match Countdown</p>
                         <p className={count}>{days}:{hours}:{minutes}:{seconds}</p>
                     </div>
+                    {/* Match */}
                     <div className={Match}>
                         <div className={homeTeam}>
                             <p className={teamName}>{game.node.homeTeam}</p>
@@ -73,6 +71,7 @@ const FullScreenNextMatch = ({matches}) => {
                             <p className={teamName}>{game.node.awayTeam}</p>
                         </div>
                     </div>
+                    {/* Match */}
                     <div className={latestNews}>
                         <div className={newsName}>
                             <p>Thomas Brdaric</p>

@@ -19,8 +19,9 @@ import {
   getProducts,
   getVideos,
 } from "../pages/api/api";
+import store from "../redux/store";
 
-export default function Home({ matches, gallery, news, products, videos }) {
+export default function Home({ matches }) {
   const [width, setWidth] = useState(null);
 
   useEffect(() => {
@@ -37,12 +38,12 @@ export default function Home({ matches, gallery, news, products, videos }) {
       <FullScreenNextMatch matches={matches} />
       <OurPartners />
       <BackSection>
-        <NewsHighlight news={news} />
+        <NewsHighlight />
         <GamesGadget width={width} matches={matches} />
-        <VllazniaTv videos={videos} />
-        <NewsAndSocial gallery={gallery} news={news} />
+        <VllazniaTv />
+        <NewsAndSocial />
         <TableGadget />
-        <ShopGadget products={products} />
+        <ShopGadget />
       </BackSection>
       <Footer />
     </div>
@@ -51,17 +52,9 @@ export default function Home({ matches, gallery, news, products, videos }) {
 
 export async function getStaticProps() {
   const matches = (await getMatches()) || [];
-  const gallery = (await getGallery()) || [];
-  const news = (await getNews()) || [];
-  const products = (await getProducts()) || [];
-  const videos = (await getVideos()) || [];
   return {
     props: {
       matches,
-      gallery,
-      news,
-      products,
-      videos,
     },
   };
 }

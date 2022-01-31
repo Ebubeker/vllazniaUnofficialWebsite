@@ -1,7 +1,14 @@
-import React, {useRef, useState} from 'react';
+import Link from 'next/link';
+import React, {useRef, useState, useEffect} from 'react';
 import {section, box, newsItem1, sectionTitle, overlay, shortdesc, newsTitle, contain, containOther, title} from './NewsHighlight.module.css';
+import store from '../redux/store';
 
-const NewsHighlight = ({news}) => {
+const NewsHighlight = () => {
+    store.dispatch({
+        type: "GETNEWS",
+    });
+
+    const {news} = store.getState();
 
     const a1 = useRef(null);
     const a2 = useRef(null);
@@ -10,8 +17,6 @@ const NewsHighlight = ({news}) => {
     const b2 = useRef(null);
     const b3 = useRef(null);
     const [counter, setCounter] = useState(0);
-
-    const {edges} = news;
 
     const hoverThing = [
         {
@@ -65,22 +70,24 @@ const NewsHighlight = ({news}) => {
         <div className={section}>
             <p className={sectionTitle}>Latest News</p>
             <div className={box}>
-                {edges.map((newa, index) => index < 3 && (
-                    <div key={index} style={{backgroundImage: `url(${newa.node.featuredImage.url})`}} onMouseOver={()=> over(hoverThing[index].nr)} onMouseLeave={()=>leave(hoverThing[index].nr)} className={newsItem1}>
-                        <div ref={hoverThing[index].nr} className={overlay}>
-                            <div className={contain}>
-                                <p className={shortdesc}>{newa.node.title}</p>
-                                <p className={newsTitle}>{newa.node.excerpt}</p>
+                {news ? news.map((newa, index) => index < 3 && (
+                    <Link href={`/news/${newa.node.slug}`}>
+                        <div key={index} style={{backgroundImage: `url(${newa.node.featuredImage.url})`}} onMouseOver={()=> over(hoverThing[index].nr)} onMouseLeave={()=>leave(hoverThing[index].nr)} className={newsItem1}>
+                            <div ref={hoverThing[index].nr} className={overlay}>
+                                <div className={contain}>
+                                    <p className={shortdesc}>{newa.node.title}</p>
+                                    <p className={newsTitle}>{newa.node.excerpt}</p>
+                                </div>
+                            </div>
+                            <div ref={hoverThing[index].anNumb} className={containOther}>
+                                <div className={title}>
+                                    <p className={shortdesc}>{newa.node.title}</p>
+                                    <p className={newsTitle}>{newa.node.excerpt}</p>
+                                </div>
                             </div>
                         </div>
-                        <div ref={hoverThing[index].anNumb} className={containOther}>
-                            <div className={title}>
-                                <p className={shortdesc}>{newa.node.title}</p>
-                                <p className={newsTitle}>{newa.node.excerpt}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                    </Link>
+                )) : <p>loading</p>}
             </div>
         </div>
     )

@@ -31,7 +31,7 @@ export const getMatches = async () => {
 
   const result = await request(graphqlAPI, query);
 
-  return result.footballMatchesConnection;
+  return result.footballMatchesConnection.edges;
 };
 
 export const getGallery = async () => {
@@ -52,7 +52,7 @@ export const getGallery = async () => {
 
   const result = await request(graphqlAPI, query);
 
-  return result.vllazniaGalleriesConnection;
+  return result.vllazniaGalleriesConnection.edges;
 };
 
 export const getNews = async () => {
@@ -82,7 +82,7 @@ export const getNews = async () => {
 
   const result = await request(graphqlAPI, query);
 
-  return result.vllazniaNewsesConnection;
+  return result.vllazniaNewsesConnection.edges;
 };
 
 export const getProducts = async () => {
@@ -131,4 +131,30 @@ export const getVideos = async () => {
   const result = await request(graphqlAPI, query);
 
   return result.vllazniaTvsConnection.edges;
+};
+
+export const getSingleNews = async (slug) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      vllazniaNews(where: { slug: $slug }) {
+        slug
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        content {
+          html
+          markdown
+          raw
+          text
+        }
+        featuredPost
+        createdAt
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+  return result.vllazniaNews;
 };

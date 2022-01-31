@@ -33,6 +33,10 @@ const OpenMenu = () => {
         }
     }
 
+    const turnOff = () => {
+        setNav(true)
+    }
+
     useEffect(() => {
         if(count === 0){
             menu.current.style.display = "none";
@@ -77,25 +81,29 @@ const OpenMenu = () => {
                 </div>
             </div>  
             <div ref={whitemen} className={whiteMenu}>
-                <div onClick={reverseWhiteMenu} className={arrowToCloseWhite}>&#60;</div>
+                <div onClick={reverseWhiteMenu} className={arrowToCloseWhite}>X close</div>
                     {NavbarData.map((navIt, index)=>{
                         if(currentWhiteElement === navIt.name){
                             return(
                                 <div key={index} className={whiteContainer}>
                                     <div className={menuTitle}>
                                         <Link href={`/${navIt.branch}`}>
-                                            <p>{navIt.name}</p>
+                                            <p onClick={turnOff}>{navIt.name}</p>
                                         </Link>
                                     </div>
                                     {navIt.content.map((navcont, index)=>(
                                         <div key={index}>
-                                            <p className={underTitle}>{navcont.title} <FontAwesomeIcon className={rightArrowIcon} icon={faArrowRight} /></p>
-                                            <ul className={whiteMenuList}>
-                                                {navcont.content.map((conte, index)=>(
-                                                    <li key={index} className={whiteMenuLink}>{conte}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                                <Link href={`/${navIt.branch}`}>
+                                                    <p onClick={turnOff} className={underTitle}>{navcont.title} <FontAwesomeIcon className={rightArrowIcon} icon={faArrowRight} /></p>
+                                                </Link>
+                                                <ul className={whiteMenuList}>
+                                                    {navcont.content.map((conte, index)=>(
+                                                        <Link href={`/${navIt.branch}`}>
+                                                            <li onClick={turnOff} key={index} className={whiteMenuLink}>{conte}</li>
+                                                        </Link>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                     ))}
                                 </div>
                             )
