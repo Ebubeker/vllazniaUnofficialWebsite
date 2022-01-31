@@ -25,7 +25,7 @@ const Teams = () => {
                 <div className={overlay}>
                     <div className={content}>
                         <p className={teamname}>KF VLLAZNIA 1919</p>
-                        <p className={teamType}>Womens Team</p>
+                        <p className={teamType}>Women&apos;s Team</p>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ const Teams = () => {
                 <div className={overlay}>
                     <div className={content}>
                         <p className={teamname}>VOLLEYBALL</p>
-                        <p className={teamType}>Women's Team</p>
+                        <p className={teamType}>Women&apos;s Team</p>
                     </div>
                 </div>
             </div>

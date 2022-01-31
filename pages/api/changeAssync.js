@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getGallery, getMatches, getNews, getProducts, getVideos } from "./api";
 
-export const retrunNews = () => {
+export const RetrunNews = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     getNews().then((res) => setNews(res));
@@ -10,7 +10,7 @@ export const retrunNews = () => {
   return news;
 };
 
-export const retrunMatches = () => {
+export const RetrunMatches = () => {
   const [match, setMatch] = useState([]);
   useEffect(() => {
     getMatches().then((res) => setMatch(res));
@@ -19,7 +19,7 @@ export const retrunMatches = () => {
   return match;
 };
 
-export const retrunVideos = () => {
+export const RetrunVideos = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
     getVideos().then((res) => setVideos(res));
@@ -28,7 +28,7 @@ export const retrunVideos = () => {
   return videos;
 };
 
-export const retrunGallery = () => {
+export const RetrunGallery = () => {
   const [gallery, setGallery] = useState([]);
   useEffect(() => {
     getGallery().then((res) => setGallery(res));
@@ -37,7 +37,7 @@ export const retrunGallery = () => {
   return gallery;
 };
 
-export const retrunProd = () => {
+export const RetrunProd = () => {
   const [prod, setProd] = useState([]);
   useEffect(() => {
     getProducts().then((res) => setProd(res));

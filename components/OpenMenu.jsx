@@ -98,8 +98,8 @@ const OpenMenu = () => {
                                                 </Link>
                                                 <ul className={whiteMenuList}>
                                                     {navcont.content.map((conte, index)=>(
-                                                        <Link href={`/${navIt.branch}`}>
-                                                            <li onClick={turnOff} key={index} className={whiteMenuLink}>{conte}</li>
+                                                        <Link key={index} href={`/${navIt.branch}`}>
+                                                            <li onClick={turnOff}  className={whiteMenuLink}>{conte}</li>
                                                         </Link>
                                                     ))}
                                                 </ul>

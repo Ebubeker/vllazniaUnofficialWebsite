@@ -7,17 +7,17 @@ import {
   getProducts,
 } from "../pages/api/api";
 import {
-  retrunNews,
-  retrunMatches,
-  retrunVideos,
-  retrunGallery,
-  retrunProd,
+  RetrunNews,
+  RetrunMatches,
+  RetrunVideos,
+  RetrunGallery,
+  RetrunProd,
 } from "../pages/api/changeAssync";
 
 const newsReducer = (state = [], action) => {
   switch (action.type) {
     case "GETNEWS":
-      return retrunNews();
+      return RetrunNews();
     default:
       return state;
   }
@@ -26,7 +26,7 @@ const newsReducer = (state = [], action) => {
 const matchesReducer = (state = [], action) => {
   switch (action.type) {
     case "GETMATCHES":
-      return retrunMatches();
+      return RetrunMatches();
     default:
       return state;
   }
@@ -35,7 +35,7 @@ const matchesReducer = (state = [], action) => {
 const videoReducer = (state = [], action) => {
   switch (action.type) {
     case "GETVIDEOS":
-      return retrunVideos();
+      return RetrunVideos();
     default:
       return state;
   }
@@ -44,7 +44,7 @@ const videoReducer = (state = [], action) => {
 const galleryReducer = (state = [], action) => {
   switch (action.type) {
     case "GETGALLERY":
-      return retrunGallery();
+      return RetrunGallery();
     default:
       return state;
   }
@@ -53,7 +53,7 @@ const galleryReducer = (state = [], action) => {
 const productsReducer = (state = [], action) => {
   switch (action.type) {
     case "GETPROD":
-      return retrunProd();
+      return RetrunProd();
     default:
       return state;
   }
